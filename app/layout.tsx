@@ -1,14 +1,15 @@
 import type { Metadata } from 'next'
-import { Montserrat, Open_Sans } from 'next/font/google'
+import { Plus_Jakarta_Sans, Inter } from 'next/font/google'
 import './globals.css'
 
-const montserrat = Montserrat({
+const montserrat = Plus_Jakarta_Sans({
   subsets: ['latin'],
   variable: '--font-montserrat',
+  weight: ['400', '500', '600', '700', '800'],
   display: 'swap',
 })
 
-const openSans = Open_Sans({
+const openSans = Inter({
   subsets: ['latin'],
   variable: '--font-opensans',
   display: 'swap',

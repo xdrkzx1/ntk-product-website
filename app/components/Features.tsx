@@ -101,7 +101,7 @@ export default function Features() {
 
               {/* Tag */}
               <div className="absolute top-6 right-6">
-                <span className="font-montserrat font-semibold text-[#4b4b4b] text-[10px] tracking-[0.2em] uppercase">
+                <span className="font-montserrat font-semibold text-[#8a8a8a] text-[10px] tracking-[0.2em] uppercase">
                   {feature.tag}
                 </span>
               </div>
@@ -112,7 +112,7 @@ export default function Features() {
               </div>
 
               <h3 className="font-montserrat font-bold text-white text-xl mb-3">{feature.title}</h3>
-              <p className="font-opensans text-[#4b4b4b] text-sm leading-relaxed">{feature.description}</p>
+              <p className="font-opensans text-[#8a8a8a] text-sm leading-relaxed">{feature.description}</p>
 
               {/* Bottom orange accent line */}
               <div className="absolute bottom-0 left-8 right-8 h-[1px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r from-transparent via-[#ff8e01]/40 to-transparent" />

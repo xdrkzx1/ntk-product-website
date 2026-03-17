@@ -55,7 +55,7 @@ export default function Metrics() {
               <div className="font-montserrat font-semibold text-[#ff8e01] text-sm mb-1">
                 {metric.label}
               </div>
-              <div className="font-opensans text-[#4b4b4b] text-xs leading-relaxed">
+              <div className="font-opensans text-[#8a8a8a] text-xs leading-relaxed">
                 {metric.desc}
               </div>
             </motion.div>

@@ -113,7 +113,7 @@ export default function Loader() {
 
           {/* Tagline */}
           <motion.p
-            className="mt-2 font-opensans text-[#4b4b4b] text-[11px] tracking-widest"
+            className="mt-2 font-opensans text-[#8a8a8a] text-[11px] tracking-widest"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.4, duration: 0.5 }}

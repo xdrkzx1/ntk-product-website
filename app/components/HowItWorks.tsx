@@ -100,14 +100,14 @@ export default function HowItWorks() {
                 </div>
 
                 <h3 className="font-montserrat font-bold text-white text-2xl mb-4">{step.title}</h3>
-                <p className="font-opensans text-[#4b4b4b] text-sm leading-relaxed mb-4">
+                <p className="font-opensans text-[#8a8a8a] text-sm leading-relaxed mb-4">
                   {step.description}
                 </p>
 
                 {/* Detail tag */}
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#083a5e]/15 border border-[#083a5e]/25">
                   <div className="w-1.5 h-1.5 rounded-full bg-[#007a3f]" />
-                  <span className="font-opensans text-[#4b4b4b] text-[11px] tracking-wide">{step.detail}</span>
+                  <span className="font-opensans text-[#8a8a8a] text-[11px] tracking-wide">{step.detail}</span>
                 </div>
               </motion.div>
             ))}

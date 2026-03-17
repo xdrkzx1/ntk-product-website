@@ -40,7 +40,7 @@ function FlowCard({ label, sub, align }: { label: string; sub: string; align: 'l
       />
       <div>
         <div className="font-montserrat font-semibold text-white text-sm">{label}</div>
-        <div className="font-opensans text-[#4b4b4b] text-xs mt-0.5">{sub}</div>
+        <div className="font-opensans text-[#8a8a8a] text-xs mt-0.5">{sub}</div>
       </div>
     </div>
   )
@@ -82,7 +82,7 @@ export default function PlatformFlow() {
             </span>
           </motion.h2>
           <motion.p
-            className="font-opensans text-[#4b4b4b] text-lg mt-5 max-w-xl mx-auto"
+            className="font-opensans text-[#8a8a8a] text-lg mt-5 max-w-xl mx-auto"
             initial={{ opacity: 0, y: 16 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -170,7 +170,7 @@ export default function PlatformFlow() {
               {/* Status dots */}
               <div className="flex items-center justify-center gap-2">
                 <div className="w-1.5 h-1.5 rounded-full bg-[#007a3f] animate-pulse" />
-                <span className="font-opensans text-[#4b4b4b] text-[11px]">Processing live</span>
+                <span className="font-opensans text-[#8a8a8a] text-[11px]">Processing live</span>
               </div>
             </div>
           </motion.div>
@@ -206,7 +206,7 @@ export default function PlatformFlow() {
 
         {/* Bottom label */}
         <motion.p
-          className="text-center font-opensans text-[#4b4b4b]/50 text-xs mt-14 tracking-wider"
+          className="text-center font-opensans text-[#8a8a8a]/50 text-xs mt-14 tracking-wider"
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ delay: 0.8 }}

@@ -46,7 +46,7 @@ function FormField({
         required={required}
         value={value}
         onChange={onChange}
-        className="w-full bg-[#0a0a0a] border border-[#083a5e]/30 hover:border-[#083a5e]/50 focus:border-[#ff8e01]/50 text-white font-opensans text-sm rounded-xl px-4 py-3.5 outline-none transition-colors duration-200 placeholder:text-[#4b4b4b]/50"
+        className="w-full bg-[#0a0a0a] border border-[#083a5e]/30 hover:border-[#083a5e]/50 focus:border-[#ff8e01]/50 text-white font-opensans text-sm rounded-xl px-4 py-3.5 outline-none transition-colors duration-200 placeholder:text-[#8a8a8a]/50"
       />
     </div>
   )
@@ -128,7 +128,7 @@ export default function DemoModal() {
               {/* Close button */}
               <button
                 onClick={close}
-                className="absolute top-5 right-5 w-8 h-8 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] flex items-center justify-center text-[#4b4b4b] hover:text-white transition-all duration-200 z-10"
+                className="absolute top-5 right-5 w-8 h-8 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] flex items-center justify-center text-[#8a8a8a] hover:text-white transition-all duration-200 z-10"
                 aria-label="Close"
               >
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
@@ -154,7 +154,7 @@ export default function DemoModal() {
                         <h2 className="font-montserrat font-bold text-white text-2xl md:text-[28px] mb-2">
                           See Noshtek in Action
                         </h2>
-                        <p className="font-opensans text-[#4b4b4b] text-sm leading-relaxed max-w-md">
+                        <p className="font-opensans text-[#8a8a8a] text-sm leading-relaxed max-w-md">
                           Tell us about your needs and we'll show you exactly how we can transform your operations.
                         </p>
                       </div>
@@ -229,7 +229,7 @@ export default function DemoModal() {
                             className="font-montserrat font-semibold text-white text-[11px] tracking-[0.15em] uppercase block mb-2"
                           >
                             What are you looking to solve?{' '}
-                            <span className="text-[#4b4b4b] normal-case font-opensans font-normal tracking-normal">
+                            <span className="text-[#8a8a8a] normal-case font-opensans font-normal tracking-normal">
                               (optional)
                             </span>
                           </label>
@@ -239,7 +239,7 @@ export default function DemoModal() {
                             placeholder="Tell us about your current challenges..."
                             value={form.message}
                             onChange={set('message')}
-                            className="w-full bg-[#0a0a0a] border border-[#083a5e]/30 hover:border-[#083a5e]/50 focus:border-[#ff8e01]/50 text-white font-opensans text-sm rounded-xl px-4 py-3.5 outline-none transition-colors duration-200 resize-none placeholder:text-[#4b4b4b]/50"
+                            className="w-full bg-[#0a0a0a] border border-[#083a5e]/30 hover:border-[#083a5e]/50 focus:border-[#ff8e01]/50 text-white font-opensans text-sm rounded-xl px-4 py-3.5 outline-none transition-colors duration-200 resize-none placeholder:text-[#8a8a8a]/50"
                           />
                         </div>
 
@@ -251,7 +251,7 @@ export default function DemoModal() {
                           Submit Request →
                         </button>
 
-                        <p className="text-center font-opensans text-[#4b4b4b]/50 text-xs">
+                        <p className="text-center font-opensans text-[#8a8a8a]/50 text-xs">
                           No spam. Our team will respond within 24 hours.
                         </p>
                       </form>
@@ -288,14 +288,14 @@ export default function DemoModal() {
                       <h3 className="font-montserrat font-bold text-white text-2xl mb-3">
                         Request Submitted!
                       </h3>
-                      <p className="font-opensans text-[#4b4b4b] text-sm max-w-sm mx-auto leading-relaxed">
+                      <p className="font-opensans text-[#8a8a8a] text-sm max-w-sm mx-auto leading-relaxed">
                         Thank you{form.name ? `, ${form.name.split(' ')[0]}` : ''}! Our team will reach out within{' '}
                         <span className="text-white">24 hours</span> to schedule your personalised demo.
                       </p>
 
                       <div className="mt-8 flex items-center justify-center gap-2">
                         <div className="w-1.5 h-1.5 rounded-full bg-[#007a3f] animate-pulse" />
-                        <span className="font-opensans text-[#4b4b4b] text-xs">
+                        <span className="font-opensans text-[#8a8a8a] text-xs">
                           Closing automatically…
                         </span>
                       </div>

@@ -47,7 +47,7 @@ export default function CTA() {
 
         {/* Subheading */}
         <motion.p
-          className="font-opensans text-[#4b4b4b] text-lg mt-8 mb-12 max-w-xl mx-auto leading-relaxed"
+          className="font-opensans text-[#8a8a8a] text-lg mt-8 mb-12 max-w-xl mx-auto leading-relaxed"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.2 }}
@@ -75,7 +75,7 @@ export default function CTA() {
           {/* Secondary */}
           <button
             onClick={() => window.dispatchEvent(new CustomEvent('openDemoModal'))}
-            className="px-10 py-5 border border-[#4b4b4b]/30 text-[#4b4b4b] font-montserrat font-medium text-sm tracking-wide rounded-xl transition-all duration-300 hover:border-white/30 hover:text-white"
+            className="px-10 py-5 border border-[#8a8a8a]/30 text-[#8a8a8a] font-montserrat font-medium text-sm tracking-wide rounded-xl transition-all duration-300 hover:border-white/30 hover:text-white"
           >
             Talk to Sales
           </button>
@@ -91,7 +91,7 @@ export default function CTA() {
           {['SOC 2 Compliant', 'GDPR Ready', 'Enterprise SLA', '24/7 Support'].map((item) => (
             <div key={item} className="flex items-center gap-2">
               <div className="w-1 h-1 rounded-full bg-[#007a3f]" />
-              <span className="font-opensans text-[#4b4b4b] text-xs">{item}</span>
+              <span className="font-opensans text-[#8a8a8a] text-xs">{item}</span>
             </div>
           ))}
         </motion.div>

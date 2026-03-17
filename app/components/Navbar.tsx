@@ -65,7 +65,7 @@ export default function Navbar() {
             <button
               key={label}
               onClick={() => scrollTo(href)}
-              className="relative font-opensans text-[#4b4b4b] hover:text-white text-sm transition-colors duration-200 group"
+              className="relative font-opensans text-[#8a8a8a] hover:text-white text-sm transition-colors duration-200 group"
             >
               {label}
               <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#ff8e01] transition-all duration-300 group-hover:w-full" />

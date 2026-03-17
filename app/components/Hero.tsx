@@ -47,68 +47,61 @@ const orangeShapeVariants = {
   },
 }
 
+
 export default function Hero() {
   return (
-    <section className="relative min-h-screen bg-[#080400] flex flex-col items-center justify-center overflow-hidden">
-      {/* ── AdSocial-style atmospheric gradient background ── */}
+    <section className="relative min-h-screen bg-[#030100] flex flex-col items-center justify-center overflow-hidden">
+
+      {/* ── Background ── */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
 
-        {/* Blob 1 — large warm left: main light source */}
-        <div className="hero-blob hero-blob-1" />
+        {/*
+          CSS @property mesh gradient — blob centers are registered typed custom
+          properties (<percentage>), so @keyframes can smooth-interpolate them.
+          filter:blur(12px) gives lava-lamp softness on the whole layer; since
+          there is no per-child transform being animated, zero GPU compositing
+          conflict — motion is fully visible.
+        */}
+        <div className="hero-mesh" />
 
-        {/* Blob 2 — warm right: secondary light source */}
-        <div className="hero-blob hero-blob-2" />
-
-        {/* Blob 3 — center warmth: ties the two together */}
-        <div className="hero-blob hero-blob-3" />
-
-        {/* Blob 4 — deep amber bottom-left: ground warmth */}
-        <div className="hero-blob hero-blob-4" />
-
-        {/* Centre dark vignette — keeps text readable */}
+        {/* Centre dark vignette — pulls focus onto text */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              'radial-gradient(ellipse 65% 55% at 50% 42%, rgba(4,2,0,0.72) 0%, transparent 100%)',
+              'radial-gradient(ellipse 58% 52% at 50% 40%, rgba(3,1,0,0.86) 0%, transparent 100%)',
           }}
         />
 
-        {/* Bottom fade to pure black */}
-        <div className="absolute bottom-0 left-0 right-0 h-[55%] bg-gradient-to-t from-black via-black/60 to-transparent" />
+        {/* Bottom fade to black */}
+        <div className="absolute bottom-0 left-0 right-0 h-[58%] bg-gradient-to-t from-black via-black/65 to-transparent" />
 
-        {/* Grain / film noise — the key texture that makes it feel premium */}
-        <svg
-          className="absolute inset-0 w-full h-full pointer-events-none"
-          style={{ opacity: 0.22, mixBlendMode: 'overlay' }}
-          aria-hidden
-        >
-          <filter id="hero-noise">
-            <feTurbulence
-              type="fractalNoise"
-              baseFrequency="0.68"
-              numOctaves="4"
-              stitchTiles="stitch"
-            />
-            <feColorMatrix type="saturate" values="0" />
-          </filter>
-          <rect width="100%" height="100%" filter="url(#hero-noise)" />
-        </svg>
+        {/* Film grain — steps(1) creates rapid random jump = tactile shimmer */}
+        <div className="hero-grain" aria-hidden>
+          <svg width="100%" height="100%">
+            <filter id="hero-noise">
+              <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="4" stitchTiles="stitch" />
+              <feColorMatrix type="saturate" values="0" />
+            </filter>
+            <rect width="100%" height="100%" filter="url(#hero-noise)" />
+          </svg>
+        </div>
       </div>
 
       {/* ── Content ── */}
-      <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-5xl mx-auto">
+      {/* pt-20 ensures logo never crowds the fixed navbar */}
+      <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-5xl mx-auto pt-20">
 
         {/* Animated Logo */}
         <motion.svg
           viewBox="0 0 2880 2880"
-          width="110"
-          height="110"
+          width="100"
+          height="100"
           variants={logoContainerVariants}
           initial="hidden"
           animate="visible"
-          style={{ filter: 'drop-shadow(0 0 28px rgba(255, 142, 1, 0.35))' }}
-          className="mb-8"
+          style={{ filter: 'drop-shadow(0 0 32px rgba(255,130,0,0.45))' }}
+          className="mb-7"
         >
           <motion.g variants={whiteShapeVariants}>
             <path fill="#ffffff" d={LOGO_PATHS.white} />
@@ -123,7 +116,7 @@ export default function Hero() {
 
         {/* Brand label */}
         <motion.p
-          className="font-montserrat font-semibold text-[#4b4b4b] text-xs tracking-[0.38em] uppercase mb-6"
+          className="font-montserrat font-semibold text-[#8a8a8a] text-[11px] tracking-[0.42em] uppercase mb-8"
           initial={{ opacity: 0, y: 6 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.0, duration: 0.6 }}
@@ -133,7 +126,7 @@ export default function Hero() {
 
         {/* Main headline */}
         <motion.h1
-          className="font-montserrat font-bold text-white text-5xl md:text-6xl lg:text-7xl leading-[1.08] tracking-tight"
+          className="font-montserrat font-bold text-white text-5xl md:text-6xl lg:text-7xl leading-[1.06] tracking-tight"
           initial={{ opacity: 0, y: 36 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.25, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
@@ -142,9 +135,7 @@ export default function Hero() {
           <br />
           <span
             className="text-transparent bg-clip-text"
-            style={{
-              backgroundImage: 'linear-gradient(90deg, #ff8e01 0%, #ffb347 100%)',
-            }}
+            style={{ backgroundImage: 'linear-gradient(90deg, #ff8e01 0%, #ffb347 100%)' }}
           >
             Built for Enterprise
           </span>
@@ -152,7 +143,7 @@ export default function Hero() {
 
         {/* Subheading */}
         <motion.p
-          className="font-opensans text-[#4b4b4b] text-lg md:text-xl leading-relaxed mt-7 max-w-2xl"
+          className="font-opensans text-[#8a8a8a] text-lg md:text-xl leading-relaxed mt-7 max-w-2xl"
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.55, duration: 0.8 }}
@@ -168,15 +159,13 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.85, duration: 0.7 }}
         >
-          {/* Primary: solid orange */}
           <button
             onClick={() => window.dispatchEvent(new CustomEvent('openDemoModal'))}
-            className="px-8 py-4 bg-[#ff8e01] text-black font-montserrat font-bold text-sm tracking-wide rounded-xl transition-all duration-300 hover:bg-[#ff8e01]/90 hover:shadow-[0_0_40px_rgba(255,142,1,0.45)] hover:scale-[1.02]"
+            className="px-8 py-4 bg-[#ff8e01] text-black font-montserrat font-bold text-sm tracking-wide rounded-xl transition-all duration-300 hover:bg-[#ff8e01]/90 hover:shadow-[0_0_40px_rgba(255,142,1,0.50)] hover:scale-[1.02]"
           >
             Request a Demo
           </button>
 
-          {/* Secondary: gradient border */}
           <div
             className="p-[1px] rounded-xl"
             style={{
@@ -185,15 +174,15 @@ export default function Hero() {
               animation: 'gradientRotate 4s ease infinite',
             }}
           >
-            <button className="px-8 py-4 bg-black text-white font-montserrat font-medium text-sm tracking-wide rounded-[11px] transition-all duration-300 hover:bg-[#050505]">
+            <button className="px-8 py-4 bg-[#030100] text-white font-montserrat font-medium text-sm tracking-wide rounded-[11px] transition-all duration-300 hover:bg-black/80">
               See the Platform
             </button>
           </div>
         </motion.div>
 
-        {/* Trusted by label */}
+        {/* Trusted by */}
         <motion.p
-          className="mt-12 font-opensans text-[#4b4b4b]/60 text-xs tracking-widest uppercase"
+          className="mt-12 font-opensans text-[#8a8a8a]/55 text-xs tracking-widest uppercase"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 2.3, duration: 0.6 }}
@@ -209,14 +198,12 @@ export default function Hero() {
         animate={{ opacity: 1 }}
         transition={{ delay: 2.6, duration: 0.6 }}
       >
-        <span className="font-opensans text-[#4b4b4b]/50 text-[10px] tracking-[0.25em] uppercase">
+        <span className="font-opensans text-[#8a8a8a]/45 text-[10px] tracking-[0.25em] uppercase">
           Scroll
         </span>
         <motion.div
           className="w-[1px] h-10 origin-top"
-          style={{
-            background: 'linear-gradient(to bottom, rgba(255,142,1,0.7), transparent)',
-          }}
+          style={{ background: 'linear-gradient(to bottom, rgba(255,142,1,0.7), transparent)' }}
           animate={{ scaleY: [0, 1, 0] }}
           transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }}
         />

@@ -72,115 +72,81 @@ body {
   100% { background-position: 0% 50%; }
 }
 
-/* ─── Hero atmospheric blobs (AdSocial-style) ─── */
-.hero-blob {
+/* ────────────────────────────────────────────────────────────────────────────
+   Hero mesh gradient — CSS @property (Houdini)
+   Registers gradient-center positions as typed <percentage> custom props so
+   CSS @keyframes can smoothly interpolate them. The blob centers animate
+   directly inside background-image — no transform, no compositing conflict.
+   filter:blur(12px) on the container gives lava-lamp softness without
+   producing any visible-movement issues.
+──────────────────────────────────────────────────────────────────────────── */
+
+@property --b1x { syntax: '<percentage>'; inherits: false; initial-value: 18%; }
+@property --b1y { syntax: '<percentage>'; inherits: false; initial-value: 12%; }
+@property --b2x { syntax: '<percentage>'; inherits: false; initial-value: 80%; }
+@property --b2y { syntax: '<percentage>'; inherits: false; initial-value:  8%; }
+@property --b3x { syntax: '<percentage>'; inherits: false; initial-value: 48%; }
+@property --b3y { syntax: '<percentage>'; inherits: false; initial-value: 88%; }
+@property --b4x { syntax: '<percentage>'; inherits: false; initial-value: 62%; }
+@property --b4y { syntax: '<percentage>'; inherits: false; initial-value: 52%; }
+
+.hero-mesh {
   position: absolute;
-  border-radius: 9999px;
-  will-change: transform;
+  /* Bleed 18 px past parent bounds so blur(12px) never hits a hard edge */
+  inset: -18px;
+  background-color: #030100;
+  background-image:
+    radial-gradient(ellipse 55% 50% at var(--b1x) var(--b1y),
+      rgba(255,  82, 0, 0.96) 0%,
+      rgba(210,  50, 0, 0.46) 40%,
+      transparent 65%),
+    radial-gradient(ellipse 50% 46% at var(--b2x) var(--b2y),
+      rgba(245,  68, 0, 0.90) 0%,
+      rgba(185,  38, 0, 0.40) 43%,
+      transparent 67%),
+    radial-gradient(ellipse 42% 38% at var(--b3x) var(--b3y),
+      rgba(255, 108, 0, 0.74) 0%,
+      rgba(200,  60, 0, 0.32) 45%,
+      transparent 70%),
+    radial-gradient(ellipse 38% 34% at var(--b4x) var(--b4y),
+      rgba(250,  88, 0, 0.64) 0%,
+      rgba(180,  48, 0, 0.26) 46%,
+      transparent 72%);
+  filter: blur(12px);
+  animation:
+    hb1 14s ease-in-out infinite alternate,
+    hb2 19s ease-in-out infinite alternate,
+    hb3 11s ease-in-out infinite alternate,
+    hb4 16s ease-in-out infinite alternate;
 }
 
-/* Large warm orange — top-left main source */
-.hero-blob-1 {
-  width: clamp(600px, 80vw, 1100px);
-  height: clamp(600px, 80vw, 1100px);
-  top: -38%;
-  left: -22%;
-  background: radial-gradient(
-    circle at center,
-    rgba(255, 110, 10, 0.72) 0%,
-    rgba(200, 60, 5,  0.45) 30%,
-    rgba(140, 30, 0,  0.18) 60%,
-    transparent 75%
-  );
-  filter: blur(72px);
-  animation: heroBlob1 18s ease-in-out infinite alternate;
+@keyframes hb1 { 0% { --b1x: 18%; --b1y: 12%; } 100% { --b1x: 40%; --b1y: 35%; } }
+@keyframes hb2 { 0% { --b2x: 80%; --b2y:  8%; } 100% { --b2x: 54%; --b2y: 30%; } }
+@keyframes hb3 { 0% { --b3x: 48%; --b3y: 88%; } 100% { --b3x: 22%; --b3y: 56%; } }
+@keyframes hb4 { 0% { --b4x: 62%; --b4y: 52%; } 100% { --b4x: 40%; --b4y: 20%; } }
+
+/* ─── Hero film grain ─── */
+@keyframes grainShimmer {
+  0%,100% { transform: translate(0%,   0%) }
+  10%     { transform: translate(-3%, -4%) }
+  20%     { transform: translate( 4%,  3%) }
+  30%     { transform: translate(-2%,  5%) }
+  40%     { transform: translate( 5%, -3%) }
+  50%     { transform: translate(-4%,  2%) }
+  60%     { transform: translate( 3%,  4%) }
+  70%     { transform: translate(-5%, -2%) }
+  80%     { transform: translate( 2%, -5%) }
+  90%     { transform: translate(-3%,  3%) }
 }
 
-/* Warm amber — top-right secondary */
-.hero-blob-2 {
-  width: clamp(500px, 70vw, 950px);
-  height: clamp(500px, 70vw, 950px);
-  top: -28%;
-  right: -20%;
-  background: radial-gradient(
-    circle at center,
-    rgba(220, 80, 8,  0.60) 0%,
-    rgba(160, 45, 0,  0.35) 35%,
-    rgba(100, 20, 0,  0.12) 65%,
-    transparent 78%
-  );
-  filter: blur(90px);
-  animation: heroBlob2 22s ease-in-out infinite alternate;
+.hero-grain {
+  position: absolute;
+  width: 115%;
+  height: 115%;
+  top: -7.5%;
+  left: -7.5%;
+  opacity: 0.44;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  animation: grainShimmer 0.35s steps(1) infinite;
 }
-
-/* Centre subtle warmth — bridges the two main blobs */
-.hero-blob-3 {
-  width: clamp(400px, 60vw, 800px);
-  height: clamp(400px, 60vw, 800px);
-  top: -5%;
-  left: 18%;
-  background: radial-gradient(
-    circle at center,
-    rgba(255, 130, 30, 0.32) 0%,
-    rgba(180, 60, 0,  0.16) 45%,
-    transparent 70%
-  );
-  filter: blur(110px);
-  animation: heroBlob3 25s ease-in-out infinite alternate;
-}
-
-/* Ground warmth — bottom-left deep amber */
-.hero-blob-4 {
-  width: clamp(350px, 50vw, 700px);
-  height: clamp(350px, 50vw, 700px);
-  bottom: -10%;
-  left: 5%;
-  background: radial-gradient(
-    circle at center,
-    rgba(150, 50, 0, 0.25) 0%,
-    rgba(80, 20, 0, 0.12) 50%,
-    transparent 70%
-  );
-  filter: blur(100px);
-  animation: heroBlob4 28s ease-in-out infinite alternate;
-}
-
-@keyframes heroBlob1 {
-  0%   { transform: translate(  0px,   0px) scale(1.00) rotate(  0deg); }
-  25%  { transform: translate( 55px,  35px) scale(1.07) rotate(  4deg); }
-  50%  { transform: translate( 20px,  75px) scale(0.96) rotate( -2deg); }
-  75%  { transform: translate( 80px,  15px) scale(1.04) rotate(  7deg); }
-  100% { transform: translate(110px,  55px) scale(1.10) rotate( -5deg); }
-}
-
-@keyframes heroBlob2 {
-  0%   { transform: translate(  0px,   0px) scale(1.00) rotate(  0deg); }
-  30%  { transform: translate(-65px,  45px) scale(1.08) rotate( -6deg); }
-  60%  { transform: translate(-30px,  90px) scale(0.93) rotate(  3deg); }
-  100% { transform: translate(-90px,  30px) scale(1.12) rotate( -9deg); }
-}
-
-@keyframes heroBlob3 {
-  0%   { transform: translate(  0px,   0px) scale(1.00); }
-  35%  { transform: translate(-45px, -25px) scale(1.13); }
-  70%  { transform: translate( 35px,  40px) scale(0.90); }
-  100% { transform: translate( 60px, -15px) scale(1.06); }
-}
-
-@keyframes heroBlob4 {
-  0%   { transform: translate(  0px,  0px) scale(1.00); }
-  40%  { transform: translate( 40px, -30px) scale(1.10); }
-  100% { transform: translate(-20px,  50px) scale(0.95); }
-}
-
-/* Legacy orb animations (used elsewhere) */
-@keyframes orb1 {
-  0%   { transform: translate(0px, 0px) scale(1); }
-  100% { transform: translate(80px, 60px) scale(1.15); }
-}
-@keyframes orb2 {
-  0%   { transform: translate(0px, 0px) scale(1); }
-  100% { transform: translate(-60px, -80px) scale(1.2); }
-}
-.animate-orb-1 { animation: orb1 10s ease-in-out infinite alternate; }
-.animate-orb-2 { animation: orb2 12s ease-in-out infinite alternate; }

@@ -76,7 +76,7 @@ export default function Footer() {
               </span>
             </div>
 
-            <p className="font-opensans text-[#4b4b4b] text-sm leading-relaxed max-w-[260px] mb-7">
+            <p className="font-opensans text-[#8a8a8a] text-sm leading-relaxed max-w-[260px] mb-7">
               The AI platform that connects, automates, and accelerates enterprise operations at scale.
             </p>
 
@@ -87,7 +87,7 @@ export default function Footer() {
                   key={label}
                   href={href}
                   aria-label={label}
-                  className="w-9 h-9 rounded-lg bg-[#083a5e]/15 border border-[#083a5e]/25 flex items-center justify-center text-[#4b4b4b] hover:text-white hover:border-[#ff8e01]/40 hover:bg-[#ff8e01]/10 transition-all duration-300"
+                  className="w-9 h-9 rounded-lg bg-[#083a5e]/15 border border-[#083a5e]/25 flex items-center justify-center text-[#8a8a8a] hover:text-white hover:border-[#ff8e01]/40 hover:bg-[#ff8e01]/10 transition-all duration-300"
                 >
                   {icon}
                 </a>
@@ -99,7 +99,7 @@ export default function Footer() {
               <div className="w-1 h-1 rounded-full bg-[#007a3f]" />
               <a
                 href="mailto:hello@noshtek.com"
-                className="font-opensans text-[#4b4b4b] hover:text-[#ff8e01] text-sm transition-colors duration-200"
+                className="font-opensans text-[#8a8a8a] hover:text-[#ff8e01] text-sm transition-colors duration-200"
               >
                 hello@noshtek.com
               </a>
@@ -117,7 +117,7 @@ export default function Footer() {
                   <li key={link}>
                     <a
                       href="#"
-                      className="font-opensans text-[#4b4b4b] hover:text-white text-sm transition-colors duration-200 flex items-center gap-1.5 group"
+                      className="font-opensans text-[#8a8a8a] hover:text-white text-sm transition-colors duration-200 flex items-center gap-1.5 group"
                     >
                       <span className="w-0 group-hover:w-3 h-[1px] bg-[#ff8e01] transition-all duration-300 inline-block" />
                       {link}
@@ -136,7 +136,7 @@ export default function Footer() {
             <p className="font-montserrat font-bold text-white text-base mb-1">
               Ready to transform your enterprise?
             </p>
-            <p className="font-opensans text-[#4b4b4b] text-sm">
+            <p className="font-opensans text-[#8a8a8a] text-sm">
               Start your journey with Noshtek today.
             </p>
           </div>
@@ -150,7 +150,7 @@ export default function Footer() {
 
         {/* ── Bottom bar ── */}
         <div className="border-t border-white/[0.04] pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="font-opensans text-[#4b4b4b] text-sm">
+          <p className="font-opensans text-[#8a8a8a] text-sm">
             © {new Date().getFullYear()} Noshtek. All rights reserved.
           </p>
 
@@ -159,18 +159,18 @@ export default function Footer() {
               <span key={item} className="flex items-center gap-1">
                 <a
                   href="#"
-                  className="font-opensans text-[#4b4b4b] hover:text-white text-sm transition-colors duration-200"
+                  className="font-opensans text-[#8a8a8a] hover:text-white text-sm transition-colors duration-200"
                 >
                   {item}
                 </a>
                 {i < arr.length - 1 && (
-                  <span className="text-[#4b4b4b]/30 mx-1">·</span>
+                  <span className="text-[#8a8a8a]/30 mx-1">·</span>
                 )}
               </span>
             ))}
           </div>
 
-          <p className="font-opensans text-[#4b4b4b]/40 text-xs">
+          <p className="font-opensans text-[#8a8a8a]/40 text-xs">
             Built with AI. Powered by ambition.
           </p>
         </div>
