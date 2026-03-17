@@ -49,27 +49,52 @@ const orangeShapeVariants = {
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen bg-black flex flex-col items-center justify-center overflow-hidden">
-      {/* ── Animated gradient orbs ── */}
-      <div
-        className="absolute top-[-15%] left-[-10%] w-[65vw] h-[65vw] max-w-[900px] max-h-[900px] rounded-full bg-[#083a5e] opacity-[0.18] blur-[130px] animate-orb-1 pointer-events-none"
-      />
-      <div
-        className="absolute bottom-[-20%] right-[-10%] w-[55vw] h-[55vw] max-w-[750px] max-h-[750px] rounded-full bg-[#ff8e01] opacity-[0.09] blur-[120px] animate-orb-2 pointer-events-none"
-      />
+    <section className="relative min-h-screen bg-[#080400] flex flex-col items-center justify-center overflow-hidden">
+      {/* ── AdSocial-style atmospheric gradient background ── */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
 
-      {/* ── Subtle grid ── */}
-      <div
-        className="absolute inset-0 opacity-[0.028] pointer-events-none"
-        style={{
-          backgroundImage:
-            'linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)',
-          backgroundSize: '64px 64px',
-        }}
-      />
+        {/* Blob 1 — large warm left: main light source */}
+        <div className="hero-blob hero-blob-1" />
 
-      {/* ── Vignette fade at bottom ── */}
-      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-black to-transparent pointer-events-none" />
+        {/* Blob 2 — warm right: secondary light source */}
+        <div className="hero-blob hero-blob-2" />
+
+        {/* Blob 3 — center warmth: ties the two together */}
+        <div className="hero-blob hero-blob-3" />
+
+        {/* Blob 4 — deep amber bottom-left: ground warmth */}
+        <div className="hero-blob hero-blob-4" />
+
+        {/* Centre dark vignette — keeps text readable */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              'radial-gradient(ellipse 65% 55% at 50% 42%, rgba(4,2,0,0.72) 0%, transparent 100%)',
+          }}
+        />
+
+        {/* Bottom fade to pure black */}
+        <div className="absolute bottom-0 left-0 right-0 h-[55%] bg-gradient-to-t from-black via-black/60 to-transparent" />
+
+        {/* Grain / film noise — the key texture that makes it feel premium */}
+        <svg
+          className="absolute inset-0 w-full h-full pointer-events-none"
+          style={{ opacity: 0.22, mixBlendMode: 'overlay' }}
+          aria-hidden
+        >
+          <filter id="hero-noise">
+            <feTurbulence
+              type="fractalNoise"
+              baseFrequency="0.68"
+              numOctaves="4"
+              stitchTiles="stitch"
+            />
+            <feColorMatrix type="saturate" values="0" />
+          </filter>
+          <rect width="100%" height="100%" filter="url(#hero-noise)" />
+        </svg>
+      </div>
 
       {/* ── Content ── */}
       <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-5xl mx-auto">
