@@ -1,3 +1,4 @@
+import Loader from './components/Loader'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import PlatformFlow from './components/PlatformFlow'
@@ -10,11 +11,12 @@ import Footer from './components/Footer'
 export default function Home() {
   return (
     <main className="bg-black">
+      <Loader />
       <Navbar />
-      <Hero />
-      <PlatformFlow />
-      <Features />
-      <HowItWorks />
+      <div id="hero"><Hero /></div>
+      <div id="platform"><PlatformFlow /></div>
+      <div id="solutions"><Features /></div>
+      <div id="about"><HowItWorks /></div>
       <Metrics />
       <CTA />
       <Footer />

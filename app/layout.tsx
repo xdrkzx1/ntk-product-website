@@ -33,6 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
+        suppressHydrationWarning
         className={`${montserrat.variable} ${openSans.variable} bg-black text-white antialiased overflow-x-hidden`}
       >
         {children}
