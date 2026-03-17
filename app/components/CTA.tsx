@@ -64,13 +64,19 @@ export default function CTA() {
           transition={{ delay: 0.3 }}
         >
           {/* Primary */}
-          <button className="group relative px-10 py-5 bg-[#ff8e01] text-black font-montserrat font-bold text-sm tracking-wider rounded-xl transition-all duration-300 hover:bg-[#ff8e01]/90 hover:shadow-[0_0_60px_rgba(255,142,1,0.5)] hover:scale-[1.03]">
+          <button
+            onClick={() => window.dispatchEvent(new CustomEvent('openDemoModal'))}
+            className="group relative px-10 py-5 bg-[#ff8e01] text-black font-montserrat font-bold text-sm tracking-wider rounded-xl transition-all duration-300 hover:bg-[#ff8e01]/90 hover:shadow-[0_0_60px_rgba(255,142,1,0.5)] hover:scale-[1.03]"
+          >
             Request a Demo
             <span className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-b from-white/10 to-transparent" />
           </button>
 
           {/* Secondary */}
-          <button className="px-10 py-5 border border-[#4b4b4b]/30 text-[#4b4b4b] font-montserrat font-medium text-sm tracking-wide rounded-xl transition-all duration-300 hover:border-white/30 hover:text-white">
+          <button
+            onClick={() => window.dispatchEvent(new CustomEvent('openDemoModal'))}
+            className="px-10 py-5 border border-[#4b4b4b]/30 text-[#4b4b4b] font-montserrat font-medium text-sm tracking-wide rounded-xl transition-all duration-300 hover:border-white/30 hover:text-white"
+          >
             Talk to Sales
           </button>
         </motion.div>

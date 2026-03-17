@@ -1,3 +1,5 @@
+'use client'
+
 const LOGO_PATHS = {
   white:
     'M 662.167969 1439.953125 L 1369.445312 2147.230469 C 1205.421875 2311.265625 939.480469 2311.265625 775.445312 2147.230469 L 68.167969 1439.953125 L 775.445312 732.671875 C 939.480469 568.640625 1205.421875 568.640625 1369.445312 732.671875 Z',
@@ -138,7 +140,10 @@ export default function Footer() {
               Start your journey with Noshtek today.
             </p>
           </div>
-          <button className="relative flex-shrink-0 px-7 py-3 bg-[#ff8e01] text-black font-montserrat font-bold text-sm tracking-wide rounded-xl transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,142,1,0.4)] hover:scale-[1.03]">
+          <button
+            onClick={() => window.dispatchEvent(new CustomEvent('openDemoModal'))}
+            className="relative flex-shrink-0 px-7 py-3 bg-[#ff8e01] text-black font-montserrat font-bold text-sm tracking-wide rounded-xl transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,142,1,0.4)] hover:scale-[1.03]"
+          >
             Request a Demo
           </button>
         </div>

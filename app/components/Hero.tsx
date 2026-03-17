@@ -144,7 +144,10 @@ export default function Hero() {
           transition={{ delay: 1.85, duration: 0.7 }}
         >
           {/* Primary: solid orange */}
-          <button className="px-8 py-4 bg-[#ff8e01] text-black font-montserrat font-bold text-sm tracking-wide rounded-xl transition-all duration-300 hover:bg-[#ff8e01]/90 hover:shadow-[0_0_40px_rgba(255,142,1,0.45)] hover:scale-[1.02]">
+          <button
+            onClick={() => window.dispatchEvent(new CustomEvent('openDemoModal'))}
+            className="px-8 py-4 bg-[#ff8e01] text-black font-montserrat font-bold text-sm tracking-wide rounded-xl transition-all duration-300 hover:bg-[#ff8e01]/90 hover:shadow-[0_0_40px_rgba(255,142,1,0.45)] hover:scale-[1.02]"
+          >
             Request a Demo
           </button>
 

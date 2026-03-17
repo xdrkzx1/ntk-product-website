@@ -75,7 +75,7 @@ export default function Navbar() {
 
         {/* CTA */}
         <button
-          onClick={() => scrollTo('#solutions')}
+          onClick={() => window.dispatchEvent(new CustomEvent('openDemoModal'))}
           className="px-5 py-2.5 bg-[#ff8e01] text-black font-montserrat font-bold text-xs tracking-wider rounded-lg transition-all duration-300 hover:bg-[#ff8e01]/90 hover:shadow-[0_0_24px_rgba(255,142,1,0.45)]"
         >
           Request Demo
