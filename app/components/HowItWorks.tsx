@@ -74,6 +74,7 @@ export default function HowItWorks() {
               className="h-full"
               style={{
                 background: 'linear-gradient(90deg, #083a5e, #ff8e01, #083a5e)',
+                transformOrigin: '0% 50%',
               }}
               initial={{ scaleX: 0 }}
               animate={isInView ? { scaleX: 1 } : {}}
@@ -85,7 +86,7 @@ export default function HowItWorks() {
             {steps.map((step, i) => (
               <motion.div
                 key={i}
-                className="flex flex-col items-center md:items-start text-center md:text-left"
+                className="flex flex-col items-center text-center"
                 initial={{ opacity: 0, y: 44 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.75, delay: 0.2 + i * 0.18 }}
